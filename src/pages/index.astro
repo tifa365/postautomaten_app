@@ -1,6 +1,11 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import '../styles/global.css';
+import { BUILD_TIME, formatDate } from '../utils/buildInfo.js';
+
+// Get the last update time (would be updated on each build in a real CI/CD pipeline)
+const lastUpdateTime = BUILD_TIME;
+const formattedDate = formatDate(lastUpdateTime);
 ---
 
 <MainLayout title="Postautomaten in Deutschland - Eine Visualisierung">
@@ -114,7 +119,10 @@ import '../styles/global.css';
     <div class="mb-4"></div>
     
     <div class="font-sansUI text-sm text-shade-dark dark:text-shade-light">
-      <time class="timeformat" datetime="2025-03-16 08:35:00">16.03.2025, 08.35 Uhr</time>
+      <time class="timeformat" datetime={lastUpdateTime.toISOString()}>
+        {formattedDate} Uhr
+      </time>
+      <span class="ml-2 text-sm">(Letzte Aktualisierung)</span>
     </div>
   </div>
   
