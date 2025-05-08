@@ -8,26 +8,41 @@ const { title, description = 'Postautomaten in Deutschland' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="de" class="dark:bg-gray-900">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="favicon" href="/favicon.svg" />
-    <script>
+    <script is:inline>
       // Check for dark mode preference
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
+      function updateTheme() {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          
+          // Add default light mode styling
+          const styleEl = document.createElement('style');
+          styleEl.id = 'initial-theme-style';
+          styleEl.textContent = `
+            html { background-color: #f8f8f8; }
+            body { background-color: #f8f8f8; }
+            article { background-color: #ffffff; }
+          `;
+          document.head.appendChild(styleEl);
+        }
       }
+      
+      // Apply the theme immediately to avoid FOUC (Flash of Unstyled Content)
+      updateTheme();
     </script>
   </head>
-  <body class="bg-shade-lightest dark:bg-gray-900 text-news-dark dark:text-gray-100 font-sans">
+  <body class="font-sans">
     <div class="relative lg:pt-8 md:pt-8 sm:pt-4 lg:px-6">
       <main id="Inhalt" class="z-20 relative">
-        <article class="bg-white dark:bg-gray-800 shadow" aria-label="Postautomaten in Deutschland">
+        <article class="shadow" aria-label="Postautomaten in Deutschland">
           <div class="container lg:w-8/12 md:w-10/12 lg:mx-auto md:mx-auto lg:px-24 md:px-24 sm:px-16">
             <slot />
           </div>

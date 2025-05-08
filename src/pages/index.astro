@@ -5,27 +5,96 @@ import '../styles/global.css';
 
 <MainLayout title="Postautomaten in Deutschland - Eine Visualisierung">
   <div class="flex justify-end pt-6 pb-2">
-    <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Toggle dark mode">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors" aria-label="Toggle dark mode">
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
       </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     </button>
   </div>
 
-  <script>
-    // Dark mode toggle functionality
-    document.getElementById('darkModeToggle')?.addEventListener('click', () => {
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize dark mode icons based on current theme
+      updateDarkModeIcons();
+      
+      // Apply initial dark mode style if needed
       if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.theme = 'light';
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.theme = 'dark';
+        let styleEl = document.createElement('style');
+        styleEl.id = 'theme-style';
+        styleEl.textContent = `
+          html { background-color: #121212 !important; }
+          body { background-color: #121212 !important; color: #ffffff !important; }
+          article { background-color: #1f1f1f !important; }
+          p, h1, h2, h3, h4, h5, h6, span { color: #ffffff !important; }
+          #darkModeToggle { background-color: #4a4a4a !important; }
+          #darkModeToggle svg { color: #ffffff !important; }
+          .aspect-\\[16\\/9\\] { background-color: #2a2a2a !important; }
+        `;
+        document.head.appendChild(styleEl);
       }
+      
+      // Set up toggle functionality
+      document.getElementById('darkModeToggle')?.addEventListener('click', () => {
+        // Toggle dark mode
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        // Create a style element for immediate visual feedback
+        let styleEl = document.getElementById('theme-style');
+        if (!styleEl) {
+          styleEl = document.createElement('style');
+          styleEl.id = 'theme-style';
+          document.head.appendChild(styleEl);
+        }
+        
+        if (isDark) {
+          // Switch to light mode
+          document.documentElement.classList.remove('dark');
+          localStorage.theme = 'light';
+          styleEl.textContent = `
+            html { background-color: #f8f8f8 !important; }
+            body { background-color: #f8f8f8 !important; color: #000000 !important; }
+            article { background-color: #ffffff !important; }
+            p, h1, h2, h3, h4, h5, h6, span { color: #000000 !important; }
+            .aspect-\\[16\\/9\\] { background-color: #f0f0f0 !important; }
+          `;
+        } else {
+          // Switch to dark mode
+          document.documentElement.classList.add('dark');
+          localStorage.theme = 'dark';
+          styleEl.textContent = `
+            html { background-color: #121212 !important; }
+            body { background-color: #121212 !important; color: #ffffff !important; }
+            article { background-color: #1f1f1f !important; }
+            p, h1, h2, h3, h4, h5, h6, span { color: #ffffff !important; }
+            #darkModeToggle { background-color: #4a4a4a !important; }
+            #darkModeToggle svg { color: #ffffff !important; }
+            .aspect-\\[16\\/9\\] { background-color: #2a2a2a !important; }
+          `;
+        }
+        
+        // Update icons
+        updateDarkModeIcons();
+      });
     });
+    
+    // Helper function to update icons based on current theme
+    function updateDarkModeIcons() {
+      const moonIcon = document.getElementById('moon-icon');
+      const sunIcon = document.getElementById('sun-icon');
+      
+      if (!moonIcon || !sunIcon) return;
+      
+      if (document.documentElement.classList.contains('dark')) {
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+      }
+    }
   </script>
   
   <div class="py-6">

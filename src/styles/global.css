@@ -102,29 +102,49 @@ html.dark * {
   }
   
   /* Dark mode specific styles */
+  html.dark {
+    background-color: #121212 !important;
+    color-scheme: dark !important;
+  }
+  
+  html.dark body {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+  }
+  
   .dark .RichText {
-    color: #e6e6e6;
+    color: #ffffff !important;
   }
   
   .dark .RichText a {
-    color: #ff7b4a;
+    color: #ff7b4a !important;
   }
   
   .dark .RichText a:hover {
-    color: #ff9d7a;
+    color: #ff9d7a !important;
     text-decoration: underline;
   }
   
   .dark .shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
   }
   
   .dark .text-shade-dark {
-    color: #a0a0a0;
+    color: #d0d0d0 !important;
   }
   
-  .dark .text-black {
-    color: #ffffff;
+  /* Force correct text colors in dark mode */
+  .dark article {
+    background-color: #1f1f1f !important;
+    color: #ffffff !important;
+  }
+  
+  .dark p, .dark span, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #ffffff !important;
+  }
+  
+  .dark .text-shade-dark, .dark .text-news-gray {
+    color: #d0d0d0 !important;
   }
   
   /* Add smooth transitions for dark mode toggle */
