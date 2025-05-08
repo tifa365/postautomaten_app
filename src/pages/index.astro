@@ -1,0 +1,119 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/global.css';
+---
+
+<MainLayout title="Postautomaten in Deutschland - Eine Visualisierung">
+  <div class="flex justify-end pt-6 pb-2">
+    <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700" aria-label="Toggle dark mode">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    // Dark mode toggle functionality
+    document.getElementById('darkModeToggle')?.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+  </script>
+  
+  <div class="py-6">
+    <h2>
+      <span class="block text-primary-base dark:text-dm-primary-base font-sansUI font-bold lg:text-l md:text-l sm:text-base mb-2">
+        Umbau des Filialnetzes
+      </span>
+      <span class="font-brandUI font-extrabold lg:text-4xl md:text-3xl sm:text-2xl leading-tight">
+        <span class="align-middle">Post-Automaten sind jetzt offiziell Filialen</span>
+      </span>
+    </h2>
+    
+    <div class="RichText RichText--sans leading-loose lg:text-base md:text-base sm:text-base mt-3">
+      Die Bundesnetzagentur hat erstmals sogenannte Poststationen als Filialen anerkannt. Neun Automaten in sechs Bundesländern haben eine Zulassung bekommen.
+    </div>
+    
+    <div class="mb-4"></div>
+    
+    <div class="font-sansUI text-sm text-shade-dark dark:text-shade-light">
+      <time class="timeformat" datetime="2025-03-16 08:35:00">16.03.2025, 08.35 Uhr</time>
+    </div>
+  </div>
+  
+  <div class="relative" data-article-el="body">
+    <div data-area="top_element>image" class="mt-6 mb-6">
+      <figure class="justify-start">
+        <div class="relative cursor-pointer">
+          <div class="relative bg-transparent">
+            <div class="aspect-[16/9] bg-news-light dark:bg-gray-700 flex items-center justify-center border border-separator-t dark:border-gray-600 rounded">
+              <span class="text-news-gray dark:text-gray-300">Deutschland-Karte mit Postautomaten-Standorten (wird geladen)</span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="font-sansUI text-sm leading-normal text-shade-dark dark:text-shade-light pt-4">
+          <p class="text-sm">Postautomaten in Deutschland: Standorte der offiziell anerkannten Stationen</p>
+        </figcaption>
+      </figure>
+    </div>
+    
+    <div class="mt-6 pb-8">
+      <div data-area="body">
+        <div data-area="text" data-pos="2" class="RichText break-words word-wrap">
+          <p class="text-base">In <a href="#" class="text-primary-base hover:underline">Deutschland</a> sind erstmals Automaten als offizielle Postfilialen anerkannt worden. Man habe neun Zulassungen für automatisierte Stationen anstelle von Universaldienstfilialen erteilt, heißt es in einem Schreiben der Bundesnetzagentur an ihren Beirat. Die Post begrüßte die Genehmigung.</p>
+        </div>
+        
+        <div data-area="text" data-pos="4" class="RichText break-words word-wrap mt-4">
+          <p class="text-base">Bei den Automaten handelt es sich um sogenannte Poststationen, in denen Pakete abgegeben und abgeholt sowie Briefmarken gekauft und Briefe eingeworfen werden können. Außerdem ist eine Videoberatung möglich. Solche Automaten gibt es zwar schon seit einigen Jahren, sie wurden bislang aber nicht als Filialen anerkannt – daher halfen sie der Post auch nicht bei der Erfüllung ihrer Filialnetzpflicht. Das ändert sich nun.</p>
+        </div>
+        
+        <div data-area="text" data-pos="6" class="RichText break-words word-wrap mt-4">
+          <p class="text-base">Es geht um zwei Standorte in NRW (Dortmund und Siegen), zwei in Bayern (Hummeltal und Egling), zwei in Baden-Württemberg (Steinhausen an der Rottum und Ebersbach an der Fils), einen in Hessen (Aßlar), einen in Niedersachsen (Georgsmarienhütte) und einen in Sachsen-Anhalt (Muldestausee).</p>
+        </div>
+        
+        <section class="my-6 clear-both">
+          <div>
+            <span class="block font-brandUI font-extrabold text-2xl leading-tight text-primary-base dark:text-dm-primary-base pb-4">
+              Regionale Verteilung
+            </span>
+            <div class="border-separator-b dark:border-gray-600 w-full h-px"></div>
+            
+            <div class="mt-4">
+              <p class="mb-4 text-base">
+                Die Verteilung der Postautomaten zeigt deutliche regionale Unterschiede. 
+                Während städtische Gebiete gut versorgt sind, müssen Menschen in ländlichen 
+                Regionen oft weite Wege zurücklegen.
+              </p>
+              
+              <p class="mb-4 text-base">
+                Die Post ist verpflichtet, in Gemeinden mit mehr als 2000 Einwohnern eine Filiale zu haben. 
+                Außerdem darf die Filiale nicht weiter von zusammenhängend bebauten Wohngebieten entfernt sein als zwei Kilometer. 
+                Diese Vorgaben hält die Post schon seit Jahren nicht ein, im Juli 2024 gab es in Deutschland 141 unbesetzte Pflichtstandorte.
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        <div data-area="text" data-pos="13" class="RichText break-words word-wrap mt-4">
+          <p class="text-base">Das wiederum lag im Wesentlichen am Strukturwandel: In Dörfern, kleinen Städten und am Stadtrand gibt es immer weniger Kioske, Supermärkte und andere Geschäfte, die neben ihrem Kerngeschäft auch einen Postschalter haben könnten – solche Einzelhändler gelten dann als Postfilialen.</p>
+        </div>
+        
+        <div data-area="text" data-pos="15" class="RichText RichText--lastPmb0 RichText--lastInline break-words word-wrap mt-4">
+          <p class="text-base">Mit der Novelle des Postgesetzes im vergangenen Jahr wurden die Vorgaben gelockert – die Filialnetzpflicht blieb bestehen, aber bestimmte Automaten können auf sie angerechnet werden. Allerdings benötigt die Post dazu die Zustimmung der Bundesnetzagentur. Das soll verhindern, dass die Post im großen Stil Filialen dichtmacht und die Attraktivität von Dörfern und Kleinstädten darunter leidet.</p>
+          
+          <p class="mt-4 text-base">Nun hat die Behörde erstmals in neun Fällen zugestimmt. Dem Vernehmen nach liegen ihr noch weitere Anträge vor, die sie nun schrittweise prüfen will.</p>
+        </div>
+      </div>
+      
+      <div></div>
+    </div>
+  </div>
+</MainLayout>

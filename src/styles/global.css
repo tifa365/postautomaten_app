@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* Custom additional styles */
+/* Dark mode toggle transitions */
+html.dark {
+  transition: background-color 0.3s ease;
+}
+
+html.dark * {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+@layer base {
+  html {
+    font-feature-settings: "kern";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    line-height: 1.6;
+    font-family: 'SpiegelSans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  /* SPIEGEL specific styles */
+  .RichText {
+    letter-spacing: -0.01em;
+  }
+  
+  .RichText p {
+    margin-bottom: 1rem;
+  }
+  
+  .RichText--sans {
+    font-family: 'SpiegelSans', system-ui, sans-serif;
+  }
+  
+  .RichText--lastPmb0 p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .RichText--lastInline p:last-child {
+    display: inline;
+  }
+  
+  a.hover\:underline:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive shadow for the article */
+  .shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  @media (min-width: 768px) {
+    .shadow {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  }
+  
+  /* Special responsive padding and margin adjustments */
+  @media (max-width: 640px) {
+    .sm\:px-16 {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    
+    .sm\:py-32 {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .md\:px-24 {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    .md\:py-40 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .lg\:px-24 {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    .lg\:py-40 {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+  
+  /* Dark mode specific styles */
+  .dark .RichText {
+    color: #e6e6e6;
+  }
+  
+  .dark .RichText a {
+    color: #ff7b4a;
+  }
+  
+  .dark .RichText a:hover {
+    color: #ff9d7a;
+    text-decoration: underline;
+  }
+  
+  .dark .shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .text-shade-dark {
+    color: #a0a0a0;
+  }
+  
+  .dark .text-black {
+    color: #ffffff;
+  }
+  
+  /* Add smooth transitions for dark mode toggle */
+  #darkModeToggle {
+    transition: background-color 0.2s ease;
+  }
+}
