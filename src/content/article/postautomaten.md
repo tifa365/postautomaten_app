@@ -23,4 +23,4 @@ Um dem Problem zumindest teilweise entgegenzuwirken, setzt die DHL Group auf Pos
     </script>
 </div>
 
-Es handelt sich um zwei Standorte in NRW (Dortmund und Siegen), zwei in Bayern (Hummeltal und Egling), zwei in Baden-Württemberg (Steinhausen an der Rottum und Ebersbach an der Fils), einen in Hessen (Aßlar), einen in Niedersachsen (Georgsmarienhütte) und einen in Sachsen-Anhalt (Muldestausee). Laut Medienangaben liegen der Bundesnetzagentur bereits weitere Anfragen der DHL vor. In Zukunft könnten weitere Automatenstandorte zur Filliale erklärt werden.
+Es handelt sich um zwei Standorte in NRW (Dortmund und Siegen), zwei in Bayern (Hummeltal und Egling), zwei in Baden-Württemberg (Steinhausen an der Rottum und Ebersbach an der Fils), einen in Hessen (Aßlar), einen in Niedersachsen (Georgsmarienhütte) und einen in Sachsen-Anhalt (Muldestausee). Laut Medienangaben liegen der Bundesnetzagentur bereits weitere Anfragen der DHL vor. In Zukunft könnten weitere Automatenstandorte zur Filiale erklärt werden.
