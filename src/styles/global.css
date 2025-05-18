@@ -34,7 +34,8 @@ html.dark * {
   }
   
   .RichText p {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1em;
   }
   
   .RichText--sans {
@@ -150,5 +151,18 @@ html.dark * {
   /* Add smooth transitions for dark mode toggle */
   #darkModeToggle {
     transition: background-color 0.2s ease;
+  }
+
+  /* Datawrapper map styles */
+  .map-wrapper {
+    max-width: 450px;
+    margin: 1rem auto;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  
+  .dark .map-wrapper {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
 }

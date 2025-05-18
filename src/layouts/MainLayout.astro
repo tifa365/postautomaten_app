@@ -16,14 +16,12 @@ const { title, description = 'Postautomaten in Deutschland' } = Astro.props;
     <title>{title}</title>
     <link rel="favicon" href="/favicon.svg" />
     <script is:inline>
-      // Check for dark mode preference
+      // Set dark mode as default
       function updateTheme() {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        } else {
+        if (localStorage.theme === 'light') {
           document.documentElement.classList.remove('dark');
-          
-          // Add default light mode styling
+
+          // Add light mode styling
           const styleEl = document.createElement('style');
           styleEl.id = 'initial-theme-style';
           styleEl.textContent = `
@@ -32,6 +30,10 @@ const { title, description = 'Postautomaten in Deutschland' } = Astro.props;
             article { background-color: #ffffff; }
           `;
           document.head.appendChild(styleEl);
+        } else {
+          // Set dark mode as default
+          document.documentElement.classList.add('dark');
+          localStorage.theme = 'dark';
         }
       }
       

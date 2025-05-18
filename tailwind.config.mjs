@@ -4,6 +4,13 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: null,
+          },
+        },
+      },
       fontFamily: {
         sans: ['SpiegelSans', 'system-ui', 'sans-serif'],
         serif: ['Georgia', 'serif'],
@@ -59,5 +66,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
